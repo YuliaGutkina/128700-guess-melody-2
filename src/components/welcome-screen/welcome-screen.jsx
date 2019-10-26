@@ -24,4 +24,3 @@ WelcomeScreen.propTypes = {
   time: PropTypes.number.isRequired,
   onPlayClick: PropTypes.func.isRequired
 };
-
