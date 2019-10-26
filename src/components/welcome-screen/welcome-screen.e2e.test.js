@@ -5,7 +5,7 @@ import {WelcomeScreen} from "./welcome-screen";
 
 Enzyme.configure({adapter: new Adapter()});
 
-it(``, () => {
+it(`Start button works correctly`, () => {
   const clickHandler = jest.fn();
   const welcomeScreen = shallow(<WelcomeScreen
     errorCount={0}

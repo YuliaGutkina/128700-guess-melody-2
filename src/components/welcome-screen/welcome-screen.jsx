@@ -25,4 +25,3 @@ WelcomeScreen.propTypes = {
   onPlayClick: PropTypes.func.isRequired
 };
 
-
