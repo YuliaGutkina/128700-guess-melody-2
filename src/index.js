@@ -6,12 +6,14 @@ const init = () => {
   const settings = {
     gameTime: 5,
     errorCount: 3,
+    onPlayClick: ()=>{}
   };
 
   ReactDOM.render(
       <App
         errorCount={settings.errorCount}
         gameTime={settings.gameTime}
+        onPlayClick={settings.onPlayClick}
       />,
       document.querySelector(`#root`)
   );
