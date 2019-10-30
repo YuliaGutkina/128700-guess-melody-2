@@ -8,7 +8,7 @@ it(`Welcome Screen correctly renders after relaunch`, () => {
         <WelcomeScreen
           errorCount={0}
           time={0}
-          onClick={jest.fn()}
+          onPlayClick={jest.fn()}
         />)
     .toJSON();
 
