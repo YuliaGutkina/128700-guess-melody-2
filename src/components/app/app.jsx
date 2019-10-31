@@ -44,6 +44,7 @@ export class App extends PureComponent {
 
     this.state = {
       question: -1,
+      answer: ``
     };
   }
 
@@ -51,13 +52,17 @@ export class App extends PureComponent {
     const {questions} = this.props;
     const {question} = this.state;
 
-    return App.getScreen(question, this.props, () => {
+    return App.getScreen(question, this.props, (evt) => {
+      evt.preventDefault();
+      const currentAnswer = evt.currentTarget.querySelectorAll(`:checked`);
+
       this.setState((prevState) => {
         const nextIndex = prevState.question + 1;
         const isEnd = nextIndex >= questions.length;
 
         return {
           question: !isEnd ? nextIndex : -1,
+          answer: currentAnswer
         };
       });
     });

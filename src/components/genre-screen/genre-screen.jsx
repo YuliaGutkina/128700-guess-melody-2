@@ -30,7 +30,7 @@ export const GenreScreen = (props) => {
       <h2 className="game__title">Выберите {question.genre} треки</h2>
       <form className="game__tracks" onSubmit={onAnswer}>
         {question.answers.map((song, index) =>
-          <div key={song.src} className="track">
+          <div key={song.src + index} className="track">
             <button className="track__button track__button--play" type="button" />
             <div className="track__status">
               <audio src={song.src}/>
