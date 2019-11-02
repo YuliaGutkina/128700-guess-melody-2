@@ -58,7 +58,7 @@ export const ArtistScreen = (props) => {
 
 ArtistScreen.propTypes = {
   question: PropTypes.shape({
-    type: PropTypes.string.isRequired,
+    type: PropTypes.oneOf([`genre`, `artist`]).isRequired,
     song: PropTypes.shape({
       artist: PropTypes.string.isRequired,
       src: PropTypes.string.isRequired,

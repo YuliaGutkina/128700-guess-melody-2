@@ -54,7 +54,7 @@ export const GenreScreen = (props) => {
 
 GenreScreen.propTypes = {
   question: PropTypes.shape({
-    type: PropTypes.string.isRequired,
+    type: PropTypes.oneOf([`genre`, `artist`]).isRequired,
     genre: PropTypes.string.isRequired,
     answers: PropTypes.arrayOf(
         PropTypes.shape({
