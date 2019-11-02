@@ -7,7 +7,8 @@ import {genreQuestion} from "../../mocks/questions";
 Enzyme.configure({adapter: new Adapter()});
 
 it(`Genre screen returns correct answer`, () => {
-  const answerHandler = jest.fn(() => `<input/>`);
+  const answerHandler = jest.fn();
+  const mockEvent = {target: `abc`};
 
   const screen = shallow(<GenreScreen
     question={genreQuestion}
@@ -15,6 +16,7 @@ it(`Genre screen returns correct answer`, () => {
 
   const form = screen.find(`form`);
   form.find(`#answer-0`).simulate(`change`);
-  form.simulate(`submit`);
-  expect(answerHandler).toHaveReturnedWith(`<input/>`);
+  form.simulate(`submit`, mockEvent);
+
+  expect(answerHandler).toHaveBeenCalledWith(mockEvent);
 });

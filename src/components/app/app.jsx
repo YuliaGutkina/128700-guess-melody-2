@@ -72,5 +72,10 @@ export class App extends PureComponent {
 App.propTypes = {
   errorCount: PropTypes.number.isRequired,
   gameTime: PropTypes.number.isRequired,
-  questions: PropTypes.array
+  questions: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        ArtistScreen.propTypes.question,
+        GenreScreen.propTypes.question
+      ])
+  )
 };

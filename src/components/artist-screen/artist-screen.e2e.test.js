@@ -7,13 +7,16 @@ import {artistQuestion} from "../../mocks/questions";
 Enzyme.configure({adapter: new Adapter()});
 
 it(`Artist screen returns correct answer`, () => {
-  const answerHandler = jest.fn(() => `<input/>`);
+  const answerHandler = jest.fn();
+  const mockEvent = {target: `abc`};
+
   const screen = shallow(<ArtistScreen
     question={artistQuestion}
     onAnswer={answerHandler}/>);
 
   const form = screen.find(`form`);
   form.find(`#answer-0`).simulate(`change`);
-  form.simulate(`change`);
-  expect(answerHandler).toHaveReturnedWith(`<input/>`);
+  form.simulate(`change`, mockEvent);
+
+  expect(answerHandler).toHaveBeenCalledWith(mockEvent);
 });
