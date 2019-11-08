@@ -17,6 +17,7 @@ export class AudioPlayer extends PureComponent {
   }
 
   render() {
+    const {src} = this.props;
     const {isLoading, isPlaying} = this.state;
 
     return (
@@ -29,6 +30,7 @@ export class AudioPlayer extends PureComponent {
         />
         <div className="track__status">
           <audio
+            src={src}
             ref={this._audioRef}
           />
         </div>
@@ -37,10 +39,7 @@ export class AudioPlayer extends PureComponent {
   }
 
   componentDidMount() {
-    const {src} = this.props;
     const audio = this._audioRef.current;
-
-    audio.src = src;
 
     audio.oncanplaythrough = () => this.setState({
       isLoading: false,
@@ -78,7 +77,6 @@ export class AudioPlayer extends PureComponent {
     audio.onplay = null;
     audio.onpause = null;
     audio.ontimeupdate = null;
-    audio.src = ``;
   }
 
   _onPlayButtonClick() {
