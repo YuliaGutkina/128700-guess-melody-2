@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {GenreScreen} from "./genre-screen";
-import {genreQuestion} from "../../mocks/questions";
+import {AudioPlayer} from "./audio-player";
 
 function createNodeMock(element) {
   if (element.type === `audio`) {
@@ -16,9 +15,10 @@ it(`Genre Screen correctly renders after relaunch`, () => {
   const options = {createNodeMock};
   const tree = renderer
     .create(
-        <GenreScreen
-          question={genreQuestion}
-          onAnswer={jest.fn()}
+        <AudioPlayer
+          isPlaying={false}
+          onPlayButtonClick={jest.fn()}
+          src={`https://upload.wikimedia.org/wikipedia/commons/6/64/Ugandan_national_anthem%2C_performed_by_the_U.S._Navy_Band.ogg`}
         />, options)
     .toJSON();
 
